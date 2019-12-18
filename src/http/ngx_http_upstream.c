@@ -1763,12 +1763,12 @@ ngx_http_upstream_ssl_handshake(ngx_http_request_t *r, ngx_http_upstream_t *u,
                 goto failed;
             }
 
-            if (ngx_ssl_check_host(c, &u->ssl_name) != NGX_OK) {
+            /*if (ngx_ssl_check_host(c, &u->ssl_name) != NGX_OK) {
                 ngx_log_error(NGX_LOG_ERR, c->log, 0,
                               "upstream SSL certificate does not match \"%V\"",
                               &u->ssl_name);
                 goto failed;
-            }
+            }*/
         }
 
         c->write->handler = ngx_http_upstream_handler;

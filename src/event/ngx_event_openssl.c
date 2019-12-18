@@ -251,7 +251,8 @@ ngx_ssl_init(ngx_log_t *log)
 ngx_int_t
 ngx_ssl_create(ngx_ssl_t *ssl, ngx_uint_t protocols, void *data)
 {
-    ssl->ctx = SSL_CTX_new(SSLv23_method());
+    //ssl->ctx = SSL_CTX_new(SSLv23_method());
+    ssl->ctx = SSL_CTX_new(GMTLS_method());
 
     if (ssl->ctx == NULL) {
         ngx_ssl_error(NGX_LOG_EMERG, ssl->log, 0, "SSL_CTX_new() failed");
